@@ -12,5 +12,6 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/Beamlnwza/pimthaigans",
+    aibuilder: "https://ai-builders.github.io/",
   },
 }
