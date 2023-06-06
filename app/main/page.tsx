@@ -15,7 +15,9 @@ import {
   viewSchema,
 } from "./responseZod"
 
-const firstTimeQuery = async (): Promise<View | Generate | null> => {
+export type firstTimeQuery = View | Generate | null
+
+const firstTimeQuery = async (): Promise<firstTimeQuery> => {
   const uuid = await LocalUuid()
   const resViewUrl = new URL(
     "https://supawitmarayat-pimthaigans-api.hf.space/view/"
@@ -58,7 +60,7 @@ const firstTimeQuery = async (): Promise<View | Generate | null> => {
 
 const Main = () => {
   const { isLoading, error, data } = useQuery({
-    queryKey: ["todos"],
+    queryKey: ["first time query", "view", "generate"],
     queryFn: () => firstTimeQuery(),
   })
   return (
