@@ -4,16 +4,15 @@ import { useQuery } from "@tanstack/react-query"
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
+import ImageContainer from "@/components/image-container"
 
-import LocalUuid from "./localuuid"
+import LocalUuid from "../../lib/localuuid"
 import {
   Generate,
   View,
   generateSchema,
-  imageSchema,
-  userSchema,
   viewSchema,
-} from "./responseZod"
+} from "../../lib/responseZod"
 
 export type firstTimeQuery = View | Generate | null
 
@@ -22,7 +21,7 @@ const firstTimeQuery = async (): Promise<firstTimeQuery> => {
   const resViewUrl = new URL(
     "https://supawitmarayat-pimthaigans-api.hf.space/view/"
   )
-  resViewUrl.searchParams.append("user", await LocalUuid())
+  resViewUrl.searchParams.append("user", uuid)
   const resView = await fetch(resViewUrl.toString())
   if (resView.ok) {
     const resViewJson = await resView.json()
@@ -63,16 +62,15 @@ const Main = () => {
     queryKey: ["first time query", "view", "generate"],
     queryFn: () => firstTimeQuery(),
   })
-  return (
-    <>
-      {isLoading && <div>Loading...</div>}
-      <Button
-        onClick={() => {
-          console.log(data)
-        }}
-      ></Button>
-    </>
-  )
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
+
+  if (data != null) {
+    return <ImageContainer ImageData={data.result} />
+  }
+
+  return <p>No data available.</p>
 }
 
 export default Main

@@ -7,7 +7,7 @@ import { Button, buttonVariants } from "@/components/ui/button"
 
 export default function IndexPage() {
   return (
-    <section className="grid items-center justify-center gap-6 px-2 pb-8 pt-6 md:py-10">
+    <section className="mt-24 grid items-center justify-center gap-6 px-2 pb-8 pt-6 md:py-10">
       <section className="grid w-auto max-w-[1200px] grid-cols-2 items-start justify-center gap-16 max-md:grid-cols-1">
         <div className="flex h-full flex-col justify-center gap-2">
           <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
@@ -20,11 +20,10 @@ export default function IndexPage() {
           <div className="flex flex-row gap-2">
             <Button>
               <Link
-                href="./"
+                href="./main"
                 className="flex flex-row items-center justify-center"
               >
-                <Navigation className="mr-2 h-4 w-4 font-bold hover:animate-spin" />
-                Let me see!
+                Lets gooo!
               </Link>
             </Button>
             <Button variant="secondary">
@@ -42,11 +41,11 @@ export default function IndexPage() {
         <div className="flex h-full items-center justify-center max-md:hidden">
           <Image
             src="https://i.postimg.cc/c48Lfgk3/intro-invert.gif"
-            width={700}
-            height={700}
+            width={800}
+            height={800}
             alt="intro"
             unoptimized={true}
-            className="aspect-auto w-auto rounded-lg dark:invert"
+            className="aspect-auto w-auto overflow-hidden rounded-lg border-2 border-black dark:invert"
           />
         </div>
       </section>

@@ -12,6 +12,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "pimthaigans-image-container.s3.amazonaws.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
   rewrites: async () => {

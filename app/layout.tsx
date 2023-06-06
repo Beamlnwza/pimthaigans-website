@@ -43,7 +43,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <ReactQueryProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <div className="absolute z-10 w-screen">
+              {/*               <div className="absolute z-10 max-h-screen w-screen">
                 <div className="relative flex min-h-screen flex-col">
                   <SiteHeader />
                   <div className="flex flex-1 items-center justify-center max-xl:px-4">
@@ -51,7 +51,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   </div>
                 </div>
               </div>
-              <div className="absolute z-0 h-screen w-screen" />
+              <div className="absolute z-0 h-screen w-screen" /> */}
+              <SiteHeader />
+              <div className="flex flex-1 items-center justify-center max-xl:px-4">
+                {children}
+              </div>
               <TailwindIndicator />
             </ThemeProvider>
           </ReactQueryProvider>
