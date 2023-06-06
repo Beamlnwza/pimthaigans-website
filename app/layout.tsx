@@ -4,6 +4,7 @@ import { Metadata } from "next"
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { ReactQueryProvider } from "@/components/react-query-provider"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -40,18 +41,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="absolute z-10 w-screen">
-              <div className="relative flex min-h-screen flex-col">
-                <SiteHeader />
-                <div className="flex flex-1 items-center justify-center max-xl:px-4">
-                  {children}
+          <ReactQueryProvider>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <div className="absolute z-10 w-screen">
+                <div className="relative flex min-h-screen flex-col">
+                  <SiteHeader />
+                  <div className="flex flex-1 items-center justify-center max-xl:px-4">
+                    {children}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="absolute z-0 h-screen w-screen" />
-            <TailwindIndicator />
-          </ThemeProvider>
+              <div className="absolute z-0 h-screen w-screen" />
+              <TailwindIndicator />
+            </ThemeProvider>
+          </ReactQueryProvider>
         </body>
       </html>
     </>
