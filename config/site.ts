@@ -9,6 +9,10 @@ export const siteConfig = {
       title: "Home",
       href: "/",
     },
+    {
+      title: "Typo",
+      href: "./main",
+    },
   ],
   links: {
     github: "https://github.com/Beamlnwza/pimthaigans",

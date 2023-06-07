@@ -5,6 +5,7 @@ import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
 import ImageContainer from "@/components/image-container"
+import Loading from "@/components/image-container/loading"
 
 import LocalUuid from "../../lib/localuuid"
 import {
@@ -63,7 +64,7 @@ const Main = () => {
     queryFn: () => firstTimeQuery(),
   })
   if (isLoading) {
-    return <p>Loading...</p>
+    return <Loading />
   }
 
   if (data != null) {
