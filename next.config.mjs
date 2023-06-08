@@ -19,6 +19,7 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    minimumCacheTTL: 60,
   },
   rewrites: async () => {
     return [

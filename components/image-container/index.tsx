@@ -11,13 +11,17 @@ const ImageContainer = ({ ImageData }: ImageContainer) => {
     return (
       <>
         <div className="flex w-screen flex-col items-center justify-center">
-          <div className="pb-10 pt-5 leading-7 [&:not(:first-child)]:mt-6">
+          <div className="pb-10 pt-5 text-center leading-7 [&:not(:first-child)]:mt-6">
             <p>
-              In dark mode if you Download image you still got white image na
+              *First time check-in may take around +-5 minutes to generate
+              typography!
+            </p>
+            <p>
+              **In dark mode if you Download image you still got white image na
               krub
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="flex flex-wrap justify-center gap-14 min-[630px]:px-10">
             {ImageData.map((item, index) => (
               <div key={index}>
                 <ImageCard
@@ -30,16 +34,6 @@ const ImageContainer = ({ ImageData }: ImageContainer) => {
           </div>
         </div>
       </>
-
-      /*       <div className="">
-        {Array(88)
-          .fill(0)
-          .map((item, index) => (
-            <div key={index}>
-              <div className="w-fit">kuy</div>
-            </div>
-          ))}
-      </div> */
     )
   }
 

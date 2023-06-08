@@ -44,6 +44,8 @@ const firstTimeQuery = async (): Promise<firstTimeQuery> => {
     },
     body: JSON.stringify({
       uuid: uuid,
+      method: "all",
+      index: "0",
     }),
   })
 
