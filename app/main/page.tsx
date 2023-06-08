@@ -22,8 +22,15 @@ const firstTimeQuery = async (): Promise<firstTimeQuery> => {
   const resViewUrl = new URL(
     "https://supawitmarayat-pimthaigans-api.hf.space/view/"
   )
-  resViewUrl.searchParams.append("user", uuid)
-  const resView = await fetch(resViewUrl.toString())
+  const resView = await fetch(resViewUrl.toString(), {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      uuid: uuid,
+    }),
+  })
   if (resView.ok) {
     const resViewJson = await resView.json()
     const resViewData = await viewSchema.safeParseAsync(resViewJson)
