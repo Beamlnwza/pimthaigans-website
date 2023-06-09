@@ -50,7 +50,9 @@ const firstTimeQuery = async (): Promise<firstTimeQuery> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      uuid: uuid,
+      user: {
+        uuid: uuid.toString(),
+      },
       method: "all",
       index: "0",
     }),

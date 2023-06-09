@@ -31,7 +31,7 @@ const SQUARE_SIZE = 175
 const onClickQuery = async (index: number): Promise<Generate | null> => {
   const uuid = await LocalUuid()
   const resGenerateUrl = new URL(
-    "https://supawitmarayat-pimthaigans-api.hf.space/generate"
+    "https://supawitmarayat-pimthaigans-api.hf.space/generate/"
   )
   const resGenerate = await fetch(resGenerateUrl.toString(), {
     method: "POST",
@@ -39,7 +39,9 @@ const onClickQuery = async (index: number): Promise<Generate | null> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      uuid: uuid,
+      user: {
+        uuid: uuid.toString(),
+      },
       method: "index",
       index: index,
     }),
