@@ -15,11 +15,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "https://supawitmarayat-pimthaigans-api.hf.space/:path*"
-    }
   ]
 }
